@@ -21,6 +21,17 @@ jobs:
 
         steps:
             - uses: actions/checkout@v4
+            - name: Set repo env vars
+              run: |
+                  echo "REPO_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f2)" >> $GITHUB_ENV
+                  echo "REPO_URL=https://github.com/$GITHUB_REPOSITORY" >> $GITHUB_ENV
+
+            - name: Prebuild SITE.ts
+              run: node scripts/generate-data.js config/site.yaml
+              env:
+                  REPO_NAME: ${{ env.REPO_NAME }}
+                  REPO_URL: ${{ env.REPO_URL }}
+
             - name: 🛠️ Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v4
               with:

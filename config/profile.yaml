@@ -9,8 +9,8 @@
 # 👤 Personal Information
 # =====================================================
 profile:
-  name: "[Your Name]"
-  headline: "Student @ [Your University]"
+  name: "Pin-Yen"
+  headline: "Student @ NCCU"
   email: "your-email@gmail.com"
   location: "[Your City, Country]" # FIXME: Not implemented yet
 
